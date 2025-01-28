@@ -49,7 +49,7 @@ arr = list(map(int, input('Enter the numbers: ').split()))
 
 filter_prime(arr)'''
 
-# 5
+'''# 5
 
 def get_permutations(line, prefix=""):
     if len(line) == 0:
@@ -60,5 +60,19 @@ def get_permutations(line, prefix=""):
             get_permutations(remaining, prefix + line[i])
 
 line = input("Enter the word: ").strip()
-print("All permutations of the line:")
-get_permutations(line)
+print("All permutations of the line: ")
+get_permutations(line)'''
+
+
+from itertools import permutations
+
+def get_permutations():
+    line = input("Enter the word: ").strip()
+    
+    all_permutations = permutations(line)   # перестановка
+    
+    print("All permutations of the line: ")
+    for perm in all_permutations:
+        print("".join(perm))    # объединение
+
+get_permutations()
