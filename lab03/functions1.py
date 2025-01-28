@@ -106,7 +106,7 @@ arr = list(map(int, input("Enter the numbers: ").split()))
 
 print(has_33(arr))'''
 
-# 8
+'''# 8
 
 def spy_game(nums):
     ans = False
@@ -122,4 +122,13 @@ def spy_game(nums):
 
 arr = list(map(int, input("Enter the numbers: ").split()))
 
-print(spy_game(arr))
+print(spy_game(arr))'''
+
+# 9
+
+def volume_of_sphere(r):
+    V = (4 * 3.14 * r**3)/3   # pi = 3.14
+    return V
+
+a = int(input("Enter the radius of a sphere: "))
+print(f'Volume of a sphere = {volume_of_sphere(a)}')
