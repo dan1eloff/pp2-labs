@@ -77,7 +77,7 @@ def get_permutations():
 
 get_permutations()'''
 
-# 6
+'''# 6
 
 from itertools import permutations
 
@@ -90,4 +90,18 @@ def get_permutations():
     for perm in all_permutations:
         print(" ".join(perm))
 
-get_permutations()
+get_permutations()'''
+
+# 7
+
+def has_33(nums):
+    ans = False
+    for i in range(1, len(nums)):
+        if nums[i] == 3 and nums[i-1] == 3:
+            ans = True
+            break
+    return ans
+
+arr = list(map(int, input("Enter the numbers: ").split()))
+
+print(has_33(arr))
