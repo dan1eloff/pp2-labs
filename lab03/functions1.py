@@ -28,7 +28,7 @@ numlegs = int(input('Number of legs: '))
 
 solve(numheads,numlegs)'''
 
-# 4
+'''# 4
 
 def filter_prime(arr):
     print('Prime numbers from the list: ')
@@ -47,4 +47,18 @@ def filter_prime(arr):
 
 arr = list(map(int, input('Enter the numbers: ').split()))
 
-filter_prime(arr)
+filter_prime(arr)'''
+
+# 5
+
+def get_permutations(line, prefix=""):
+    if len(line) == 0:
+        print(prefix)
+    else:
+        for i in range(len(line)):
+            remaining = line[:i] + line[i+1:]
+            get_permutations(remaining, prefix + line[i])
+
+line = input("Enter the word: ").strip()
+print("All permutations of the line:")
+get_permutations(line)
