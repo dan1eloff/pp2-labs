@@ -64,7 +64,7 @@ print("All permutations of the line: ")
 get_permutations(line)'''
 
 
-from itertools import permutations
+'''from itertools import permutations
 
 def get_permutations():
     line = input("Enter the word: ").strip()
@@ -74,5 +74,20 @@ def get_permutations():
     print("All permutations of the line: ")
     for perm in all_permutations:
         print("".join(perm))    # объединение
+
+get_permutations()'''
+
+# 6
+
+from itertools import permutations
+
+def get_permutations():
+    words = list(map(str, input("Enter the word: ").split()))
+    
+    all_permutations = permutations(words)
+    
+    print("All permutations of the line: ")
+    for perm in all_permutations:
+        print(" ".join(perm))
 
 get_permutations()
