@@ -92,7 +92,7 @@ def get_permutations():
 
 get_permutations()'''
 
-# 7
+'''# 7
 
 def has_33(nums):
     ans = False
@@ -104,4 +104,22 @@ def has_33(nums):
 
 arr = list(map(int, input("Enter the numbers: ").split()))
 
-print(has_33(arr))
+print(has_33(arr))'''
+
+# 8
+
+def spy_game(nums):
+    ans = False
+    for i in range(0, len(nums)):
+        if nums[i] == 0:
+            for j in range(i+1, len(nums)):
+                if nums[j] == 0:
+                    for k in range(j+1, len(nums)):
+                        if nums[k] == 7:
+                            ans = True
+                            break
+    return ans
+
+arr = list(map(int, input("Enter the numbers: ").split()))
+
+print(spy_game(arr))
