@@ -109,5 +109,27 @@ def movies_55():
         jj = str(j)+'.'
         print(f'{jj:<4}{i}')
         
+# 3
+def movies_category():
+    categories = set()
+    for descriptions in movies:
+        categories.add(descriptions['category'])
+    
+    print('Movie categories:')
+    j = 0
+    for i in categories:
+        j += 1
+        ij = str(j)+'.'
+        print(f'{ij:<3}{i}')
+    
+    choose = input('Select category: ')
+    
+    print(f'\nMovies in the category {choose}:')
+    i = 0
+    for descriptions in movies:
+        if descriptions['category'] == choose:
+            i += 1
+            ij = str(i)+'.'
+            print(f'{ij:<3}{descriptions['name']}')
 
-movies_55()
+movies_category()
