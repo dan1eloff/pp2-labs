@@ -16,9 +16,9 @@ def FahrenheittoCelcius(F):
 F = float(input("Temperature in Fahrenheit: "))
 print(f"Temperature in Celsius: {FahrenheittoCelcius(F)}")'''
 
-# 3
+'''# 3
 
-'''def solve(numheads, numlegs):
+def solve(numheads, numlegs):
     rabbits = int((numlegs - 2*numheads)/2)
     chickens = int(numheads - rabbits)
     print(f'Number of rabbits = {rabbits} \nNumber of chickens = {chickens}')
@@ -172,7 +172,7 @@ def histogram():
     
 histogram()'''
 
-# 13
+'''# 13
 
 def guess_the_num():
     from random import randint
@@ -200,4 +200,4 @@ def guess_the_num():
 
         
 
-guess_the_num()
+guess_the_num()'''
