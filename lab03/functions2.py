@@ -81,10 +81,12 @@ movies = [
 # 1
 def movie_rate_is_high():
     print('Choose a movie:')
-    i = 1
+    i = 0
     for description in movies:
-        print(f'{i}.{description['name']}')
         i += 1
+        ij = str(i)+'>'
+        print(f'{ij:<4}{description['name']}')
+
     
     choose = int(input('Enter movie number: '))
 
