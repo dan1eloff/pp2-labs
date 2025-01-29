@@ -162,7 +162,7 @@ var = input("Enter a word, phrase or sequence: ")
 
 is_palindrome(var)'''
 
-# 12
+'''# 12
 
 def histogram():
     nums  = list(map(int, input("Enter the numbers: ").split()))
@@ -170,4 +170,34 @@ def histogram():
         pic = '*'*i
         print("".join(pic))
     
-histogram()
+histogram()'''
+
+# 13
+
+def guess_the_num():
+    from random import randint
+
+    print('Assalamualaikum! What is your name?')
+    user_name = str(input("My name is "))
+
+    a, b = map(int,input("Between which numbers should the number be guessed: ").split())
+    hidden_num = randint(a, b)
+
+    print(f"Well, {user_name}, I am thinking of a number between {a} and {b}.")
+
+    count = 1
+    while True:
+        num = int(input('Take a guess.\n'))
+
+        if num != hidden_num:
+            if num < hidden_num:
+                print('Your guess is too low.')
+            else:
+                print('Your guess is too high.')
+            count += 1
+        else:
+            print(f'Good job, {user_name}! You guessed my number in {count} guesses!')
+
+        
+
+guess_the_num()
