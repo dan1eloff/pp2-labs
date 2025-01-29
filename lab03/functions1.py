@@ -124,11 +124,28 @@ arr = list(map(int, input("Enter the numbers: ").split()))
 
 print(spy_game(arr))'''
 
-# 9
+'''# 9
 
 def volume_of_sphere(r):
     V = (4 * 3.14 * r**3)/3   # pi = 3.14
     return V
 
 a = int(input("Enter the radius of a sphere: "))
-print(f'Volume of a sphere = {volume_of_sphere(a)}')
+print(f'Volume of a sphere = {volume_of_sphere(a)}')'''
+
+# 10
+
+def unique_list(arr):
+    unique_arr = []
+    for i in arr:
+        a = 0
+        for j in arr:
+            if i == j:
+                a += 1
+        if a == 1:
+            unique_arr.append(i)
+    return unique_arr
+
+var = list(map(int, input("Enter the numbers: ").split()))
+
+print(unique_list(var))
