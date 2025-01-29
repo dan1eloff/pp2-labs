@@ -150,7 +150,7 @@ var = list(map(int, input("Enter the numbers: ").split()))
 
 print(unique_list(var))'''
 
-# 11
+'''# 11
 
 def is_palindrome(a):
     if a == a[::-1]:
@@ -160,4 +160,14 @@ def is_palindrome(a):
 
 var = input("Enter a word, phrase or sequence: ")
 
-is_palindrome(var)
+is_palindrome(var)'''
+
+# 12
+
+def histogram():
+    nums  = list(map(int, input("Enter the numbers: ").split()))
+    for i in nums:
+        pic = '*'*i
+        print("".join(pic))
+    
+histogram()
