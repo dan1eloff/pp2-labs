@@ -95,4 +95,19 @@ def movie_rate_is_high():
     else:
         print(False)
 
-movie_rate_is_high()
+# 2
+def movies_55():
+    movies_collection = []
+    for description in movies:
+        if description['imdb'] > 5.5:
+            movies_collection.append(description['name'])
+
+    j = 0
+    print('Movies rated above 5.5:')
+    for i in movies_collection:
+        j += 1
+        jj = str(j)+'.'
+        print(f'{jj:<4}{i}')
+        
+
+movies_55()
