@@ -133,7 +133,7 @@ def volume_of_sphere(r):
 a = int(input("Enter the radius of a sphere: "))
 print(f'Volume of a sphere = {volume_of_sphere(a)}')'''
 
-# 10
+'''# 10
 
 def unique_list(arr):
     unique_arr = []
@@ -148,4 +148,16 @@ def unique_list(arr):
 
 var = list(map(int, input("Enter the numbers: ").split()))
 
-print(unique_list(var))
+print(unique_list(var))'''
+
+# 11
+
+def is_palindrome(a):
+    if a == a[::-1]:
+        print(f'The {a} is a palindrome')
+    else:
+        print(f'The {a} is not a palindrome')
+
+var = input("Enter a word, phrase or sequence: ")
+
+is_palindrome(var)
