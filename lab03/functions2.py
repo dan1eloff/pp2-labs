@@ -132,4 +132,11 @@ def movies_category():
             ij = str(i)+'.'
             print(f'{ij:<3}{descriptions['name']}')
 
-movies_category()
+# 4
+def avg_imdb():
+    arr = []
+    for descriptions in movies:
+        arr.append(descriptions['imdb'])
+    print(f'Average IMDB score = {sum(arr)/len(arr):.2f}')
+
+avg_imdb()
