@@ -71,3 +71,31 @@ class Point:
 # print(to4ka.move(5,15))
 # print(to4ka.show())
 # print(to4ka.dist())
+
+# 5
+class Account:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.balance = balance
+    
+    def  deposit(self, plus):
+        self.balance += plus
+        text = 'Bank account: '+str(self.owner)+'\nReplenishment: '+str(plus)+'\nAvailable: '+str(self.balance)+'\n'
+        return text
+
+    def withdraw(self, minus):
+        if minus > self.balance:
+            text = 'It is impossible to perform this operation,'+'\nyou do not have such amount in your account'+'\nBalance: '+str(self.balance)
+            return text
+        else:
+            self.balance -= minus
+            text = 'Bank account: '+str(self.owner)+'\nWithdrawal: '+str(minus)+'\nAvailable: '+str(self.balance)+'\n'
+            return text
+        
+p1 = Account('Daniel', 120000)
+print(p1.deposit(15000))
+print(p1.withdraw(35000))
+
+p2 = Account('Nurbol', 3267)
+print(p2.deposit(1733))
+print(p2.withdraw(6000))
