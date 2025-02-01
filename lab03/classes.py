@@ -92,10 +92,30 @@ class Account:
             text = 'Bank account: '+str(self.owner)+'\nWithdrawal: '+str(minus)+'\nAvailable: '+str(self.balance)+'\n'
             return text
         
-p1 = Account('Daniel', 120000)
-print(p1.deposit(15000))
-print(p1.withdraw(35000))
+# p1 = Account('Daniel', 120000)
+# print(p1.deposit(15000))
+# print(p1.withdraw(35000))
 
-p2 = Account('Nurbol', 3267)
-print(p2.deposit(1733))
-print(p2.withdraw(6000))
+# p2 = Account('Nurbol', 3267)
+# print(p2.deposit(1733))
+# print(p2.withdraw(6000))
+
+# 6
+def check_prime(i):
+    check, a = False, 2
+    if i == 2:
+        return True
+    while i>a:
+        if i%a == 0:
+            check = False
+            break
+        else:
+               check = True
+        a += 1
+    return check
+
+arr = list(map(int, input('Enter the numbers: ').split()))
+
+prime_nums = list(filter(lambda x: check_prime(x), arr))
+
+print(prime_nums)
