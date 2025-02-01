@@ -139,4 +139,22 @@ def avg_imdb():
         arr.append(descriptions['imdb'])
     print(f'Average IMDB score = {sum(arr)/len(arr):.2f}')
 
-avg_imdb()
+# 5
+def avg_imdb_of_category():
+    categories = set()
+    for descriptions in movies:
+        categories.add(descriptions['category'])
+
+    j = 0
+    for i in categories:
+        j += 1
+        ij = str(j)+'.'
+        print(f'{ij:<3}{i}')
+
+    choose = input('\nSelect movie category: ')
+    arr = []
+    for descriptions in movies:
+        if descriptions['category'] == choose:
+            arr.append(descriptions['imdb'])
+
+    print(f'Average IMDB score = {sum(arr)/len(arr):.2f}')
