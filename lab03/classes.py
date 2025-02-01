@@ -32,3 +32,15 @@ class Square(Shape):
  
 # square = Square(5)
 # print("Square Area:", square.area())
+
+# 3
+class Rectangle(Shape):
+    def __init__(self,  lenght, widht):
+        self.length = lenght
+        self.widht = widht
+    
+    def area(self):
+        return self.length * self.widht
+
+abcd = Rectangle(5,4)
+print(abcd.area())
