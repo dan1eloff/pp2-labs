@@ -1,7 +1,7 @@
 import pygame
 import os
 import datetime
-import sys  # Импортируем модуль sys для завершения программы
+import sys
 
 _image_library = {}
 def get_image(path):
