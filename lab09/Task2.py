@@ -1,7 +1,7 @@
 import pygame
 import random
+import time
 
-# Инициализация Pygame
 pygame.init()
 
 BLACK = (0, 0, 0)
@@ -21,6 +21,7 @@ snake_block = 10
 snake_speed = 15
 clock = pygame.time.Clock()
 
+# Счет
 def message(msg, color, x, y):
     mesg = font.render(msg, True, color)
     screen.blit(mesg, [x, y])
@@ -30,16 +31,26 @@ def display_score(score, level):
     score_text = font.render(f"Score: {score} Level: {level}", True, BLACK)
     screen.blit(score_text, [10, 10])
 
-# Генерация еды
+# Генерация еды с весом и временем жизни
 def generate_food(snake_body):
     food_x = random.randrange(0, SCREEN_WIDTH - snake_block, snake_block)
     food_y = random.randrange(0, SCREEN_HEIGHT - snake_block, snake_block)
 
+    # Список возможных типов еды (вес и время исчезновения)
+    food_types = [
+        {"color": GREEN, "points": 10, "time": 5},
+        {"color": RED, "points": 20, "time": 7},
+        {"color": BLUE, "points": 30, "time": 10}
+    ]
+    
+    # Выбираем случайную еду
+    food = random.choice(food_types)
+    
     while (food_x, food_y) in snake_body:
         food_x = random.randrange(0, SCREEN_WIDTH - snake_block, snake_block)
         food_y = random.randrange(0, SCREEN_HEIGHT - snake_block, snake_block)
-
-    return food_x, food_y
+    
+    return food_x, food_y, food
 
 # Главная игровая функция
 def gameLoop():
@@ -55,7 +66,8 @@ def gameLoop():
     length_of_snake = 1
 
     # Генерация еды
-    food_x, food_y = generate_food(snake_body)
+    food_x, food_y, food = generate_food(snake_body)
+    food_time = time.time()  # Запоминаем время появления еды
 
     score = 0
     level = 1
@@ -103,7 +115,13 @@ def gameLoop():
         y1 += y1_change
         screen.fill(WHITE)
 
-        pygame.draw.rect(screen, GREEN, [food_x, food_y, snake_block, snake_block])
+        # Проверяем, не истекло ли время для еды
+        if time.time() - food_time > food["time"]:
+            food_x, food_y, food = generate_food(snake_body)
+            food_time = time.time()  # Обновляем время появления новой еды
+
+        # Рисуем еду
+        pygame.draw.rect(screen, food["color"], [food_x, food_y, snake_block, snake_block])
 
         snake_head = []
         snake_head.append(x1)
@@ -117,7 +135,7 @@ def gameLoop():
             if block == snake_head:
                 game_close = True
 
-        # Змея
+        # Рисуем змею
         for segment in snake_body:
             pygame.draw.rect(screen, BLUE, [segment[0], segment[1], snake_block, snake_block])
 
@@ -126,10 +144,10 @@ def gameLoop():
 
         # Проверка на съеденную еду
         if x1 == food_x and y1 == food_y:
-            food_x, food_y = generate_food(snake_body)
+            food_x, food_y, food = generate_food(snake_body)
             length_of_snake += 1
-            score += 10
-            if score % 30 == 0:  # УУровень
+            score += food["points"]  # Добавляем очки в зависимости от типа еды
+            if score % 30 == 0:  # Уровень
                 level += 1
                 global snake_speed
                 snake_speed += 5  # Скорость змеи
